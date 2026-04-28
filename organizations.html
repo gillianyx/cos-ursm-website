@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College of Science - Organizations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .organizations-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .organization {
+            min-height: 400px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .organization:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .organization-content {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .organization:hover .organization-content {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .organization h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .organization p {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .organization-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .organization-link:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        /* Organization 1 - Red gradient */
+        #org-1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+1');
+            background-color: #ff6b6b;
+        }
+
+        /* Organization 2 - Blue gradient */
+        #org-2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+2');
+            background-color: #4ecdc4;
+        }
+
+        /* Organization 3 - Green gradient */
+        #org-3 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+3');
+            background-color: #45b7d1;
+        }
+
+        /* Organization 4 - Purple gradient */
+        #org-4 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+4');
+            background-color: #9b59b6;
+        }
+
+        /* Organization 5 - Orange gradient */
+        #org-5 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+5');
+            background-color: #f39c12;
+        }
+
+        /* Organization 6 - Teal gradient */
+        #org-6 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+6');
+            background-color: #1abc9c;
+        }
+
+        /* Organization 7 - Pink gradient */
+        #org-7 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+7');
+            background-color: #e91e63;
+        }
+
+        /* Organization 8 - Indigo gradient */
+        #org-8 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+8');
+            background-color: #3f51b5;
+        }
+
+        /* Organization 9 - Cyan gradient */
+        #org-9 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Organization+9');
+            background-color: #00bcd4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .organization {
+                min-height: 300px;
+            }
+
+            .organization-content {
+                padding: 30px 20px;
+            }
+
+            .organization h2 {
+                font-size: 1.5rem;
+            }
+
+            .organization p {
+                font-size: 0.9rem;
+            }
+
+            .organizations-container {
+                padding: 20px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .organization {
+                min-height: 250px;
+            }
+
+            .organization h2 {
+                font-size: 1.3rem;
+            }
+
+            .organization p {
+                font-size: 0.85rem;
+                margin-bottom: 15px;
+            }
+
+            .organization-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>College of Science Organizations</h1>
+        <p>Explore our vibrant student organizations and get involved</p>
+    </div>
+
+    <div class="organizations-container">
+        <!-- Organization 1 -->
+        <div class="organization" id="org-1">
+            <div class="organization-content">
+                <h2>Organization 1</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-1" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 2 -->
+        <div class="organization" id="org-2">
+            <div class="organization-content">
+                <h2>Organization 2</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-2" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 3 -->
+        <div class="organization" id="org-3">
+            <div class="organization-content">
+                <h2>Organization 3</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-3" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 4 -->
+        <div class="organization" id="org-4">
+            <div class="organization-content">
+                <h2>Organization 4</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-4" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 5 -->
+        <div class="organization" id="org-5">
+            <div class="organization-content">
+                <h2>Organization 5</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-5" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 6 -->
+        <div class="organization" id="org-6">
+            <div class="organization-content">
+                <h2>Organization 6</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-6" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 7 -->
+        <div class="organization" id="org-7">
+            <div class="organization-content">
+                <h2>Organization 7</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-7" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 8 -->
+        <div class="organization" id="org-8">
+            <div class="organization-content">
+                <h2>Organization 8</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-8" class="organization-link">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Organization 9 -->
+        <div class="organization" id="org-9">
+            <div class="organization-content">
+                <h2>Organization 9</h2>
+                <p>Add your organization description, mission, and details here. This is placeholder text that you can replace with actual information.</p>
+                <a href="#org-9" class="organization-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
